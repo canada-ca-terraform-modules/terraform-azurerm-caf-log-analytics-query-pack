@@ -5,7 +5,7 @@ variable "query_pack" {
 }
 
 module "query_pack" {
-  source = "github.com/canada-ca-terraform-modules/terraform-azurerm-caf-log-analytics-query-pack?ref=v1.0.0"
+  source = "github.com/canada-ca-terraform-modules/terraform-azurerm-caf-log-analytics-query-pack?ref=v1.0.1"
   for_each = var.query_pack
 
   userDefinedString = each.key
@@ -15,4 +15,5 @@ module "query_pack" {
   resource_groups = local.resource_groups_all
   location = var.location
   query_pack = each.value
+  tags = var.tags
 }
